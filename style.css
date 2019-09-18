@@ -12,7 +12,7 @@ h1{
 .calculator{
   text-align: center;
   font-family: Arial;
-
+  font-size: 3em;
   line-height: 200%;
   background-color: blue;
 }
