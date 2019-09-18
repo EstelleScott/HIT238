@@ -1,6 +1,7 @@
 body{
   padding: 5%;
   font-size: 1em;
+  background-color: #f8f8f8
 }
 h1{
   font-family: monospace;
@@ -12,11 +13,11 @@ h1{
 .calculator{
   text-align: center;
   font-family: Arial;
-  font-size: 3em;
+  font-size: 1.1em;
   line-height: 200%;
-  background-color: blue;
 }
 input[name = "inputs"]{
   width: 25px;
   padding: 0.5%;
+  font-size: 0.8em;
 }
