@@ -2,7 +2,7 @@
 //https://www.rapidtables.com/calc/grade/final-grade-calculation.html
 
 function calculate(){
-  //get values from input boxes
+  //get values from input boxes and converts them to number
   var currentGrade = Number(document.getElementById("currentgrade").value);
   var desiredGrade = Number(document.getElementById("desiredgrade").value);
   var finalWeight = Number(document.getElementById("finalweight").value);
@@ -13,7 +13,8 @@ function calculate(){
   {
     //rounds number to whole percentage
     var rounded = Math.round(gradeNeeded)
-    //display result in label
+    //display result in a pop up and then label
     document.getElementById("result").innerHTML = "Your grade needed is " + rounded + "%";
+    alert("Your grade needed is " + rounded + "%");
   }
 }
