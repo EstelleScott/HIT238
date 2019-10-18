@@ -9,12 +9,36 @@ function calculate(){
   // percentage needed calculation
   var gradeNeeded = ((1*(desiredGrade/100)-(1-(finalWeight/100))*(currentGrade/100))/(finalWeight/100))*100;
   //if the variables do not result in NaN, display reult
-  if(!isNaN(gradeNeeded))
-  {
+  if(!isNaN(gradeNeeded)){
     //rounds number to whole percentage
     var rounded = Math.round(gradeNeeded)
     //display result in a pop up and then label
     document.getElementById("result").innerHTML = "Your grade needed is " + rounded + "%";
     alert("Your grade needed is " + rounded + "%");
+  }
+}
+
+function save(){
+  var currentGrade = Number(document.getElementById("currentgrade").value);
+  var desiredGrade = Number(document.getElementById("desiredgrade").value);
+  var finalWeight = Number(document.getElementById("finalweight").value);
+  var gradeNeeded = ((1*(desiredGrade/100)-(1-(finalWeight/100))*(currentGrade/100))/(finalWeight/100))*100;
+  if(!isNaN(gradeNeeded)){
+    var rounded = Math.round(gradeNeeded)
+  }
+  var query = {
+    current: currentGrade,
+    desired: desiredGrade,
+    weight: finalWeight,
+    result: rounded,
+  }
+  window.localStorage.setItem("saveresult", JSON.stringify(query));
+
+  var qt = document.getElementById("querytable");
+  
+  var retrievedQuery = JSON.parse(localStorage.getItem("saveresult"));
+
+  for (var i = 0; i < retrievedQuery.length; i++) {
+    qt.innerHTML += "<tr><td>" + retrievedQuery[i].current + "</td><td>" + retrievedQuery[i].desired + "</td><td>" + retrievedQuery[i].weight + "</td><td>" + retrievedQuery[i].result + "</td></tr>";
   }
 }
