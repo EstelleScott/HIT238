@@ -32,13 +32,9 @@ function save(){
     weight: finalWeight,
     result: rounded,
   }
-  window.localStorage.setItem("saveresult", JSON.stringify(query));
+  //gets user input to name query and saves it into localstorage 
+  var subject = prompt("What would you like to name this query?", "Subject Code");
+  window.localStorage.setItem(subject, JSON.stringify(query));
 
-  var qt = document.getElementById("querytable");
-  
   var retrievedQuery = JSON.parse(localStorage.getItem("saveresult"));
-
-  for (var i = 0; i < retrievedQuery.length; i++) {
-    qt.innerHTML += "<tr><td>" + retrievedQuery[i].current + "</td><td>" + retrievedQuery[i].desired + "</td><td>" + retrievedQuery[i].weight + "</td><td>" + retrievedQuery[i].result + "</td></tr>";
-  }
 }
