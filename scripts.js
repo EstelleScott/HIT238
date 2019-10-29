@@ -32,9 +32,14 @@ function save(){
     weight: finalWeight,
     result: rounded,
   }
-  //gets user input to name query and saves it into localstorage 
+  //gets user input to name query and saves it into localstorage
   var subject = prompt("What would you like to name this query?", "Subject Code");
-  window.localStorage.setItem(subject, JSON.stringify(query));
 
-  var retrievedQuery = JSON.parse(localStorage.getItem("saveresult"));
+  if (subject == null || subject == ""){
+    document.getElementById("result").innerHTML = "Save cancelled";
+  } else {
+    window.localStorage.setItem(subject, JSON.stringify(query));
+    var retrievedQuery = JSON.parse(localStorage.getItem("saveresult"));
+    document.getElementById("result").innerHTML = "Query was saved as " + subject;
+  }
 }
